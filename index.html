@@ -1,0 +1,686 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+   
+<style>
+  .col-md-3 {
+  display: none; /* Todas las tarjetas están ocultas por defecto */
+}
+</style>
+    <title>All Template Needs</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/component.css">
+    <link rel="stylesheet" href="css/custom-styles.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+	
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+	 <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="css/font-awesome-ie7.css">
+
+      <script src="js/jquery.mobilemenu.js"></script>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+      
+      
+      <script>
+    $(document).ready(function(){
+        $('.menu').mobileMenu();
+    });
+  </script>
+ <head>
+  <style>
+    .col-md-3 {
+      display: none; /* Todas las tarjetas están ocultas por defecto */
+    }
+  </style>
+  <title>All Template Needs</title>
+
+  <!-- Enlace a estilos CSS -->
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/component.css">
+  <link rel="stylesheet" href="css/custom-styles.css">
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/demo.css">
+  <link rel="stylesheet" href="css/font-awesome-ie7.css">
+
+  <!-- Scripts -->
+  <script src="js/jquery.mobilemenu.js"></script>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  
+  <script>
+    $(document).ready(function () {
+      $('.menu').mobileMenu();
+    });
+  
+    function searchImages() {
+      var input = document.getElementById("searchInput");
+      var filter = normalizeText(input.value).toUpperCase();
+      var thumbnails = document.querySelectorAll(".col-md-3");
+      var found = false;
+      var message = document.getElementById("message");
+      var notRegistered = document.getElementById("notRegistered");
+  
+      // Limpiar mensajes y restablecer elementos visibles
+      message.textContent = "";
+      notRegistered.style.display = "none";
+      thumbnails.forEach(function (thumbnail) {
+        thumbnail.style.display = "none"; // Esconde todos los elementos
+      });
+  
+      // Mostrar mensaje de alerta si no se ingresó ningún dato
+      if (!input.value.trim()) {
+        alert("No se ha ingresado ningún dato. Por favor, intente nuevamente.");
+        return;
+      }
+  
+      for (var i = 0; i < thumbnails.length; i++) {
+        var caption = thumbnails[i].querySelector(".caption");
+        var paragraphs = caption ? caption.querySelectorAll("p") : [];
+        var exactMatch = false;
+  
+        for (var j = 0; j < paragraphs.length; j++) {
+          var txtValueParagraph = normalizeText(paragraphs[j].textContent || paragraphs[j].innerText).toUpperCase();
+          if (txtValueParagraph === filter) {
+            exactMatch = true;
+            break;
+          }
+        }
+  
+        if (exactMatch) {
+          thumbnails[i].style.display = "block"; // Muestra el elemento coincidente
+          found = true;
+        }
+      }
+  
+      // Mostrar mensaje si no se encontró ningún resultado
+      if (!found) {
+        alert("El estudiante no está en la base de datos.");
+        notRegistered.style.display = "block";
+      }
+  
+      // Limpia el campo de entrada
+      input.value = "";
+    }
+  
+    function handleNotRegistered() {
+      alert("Botón presionado: No está registrado.");
+    }
+  
+    function normalizeText(text) {
+      return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+  </script>
+</head>
+
+<body>
+    <button class="btn" style="background-color: green; color: white; font-weight: bold; width: 120px" onclick="location.href='https://joneidert.github.io/movilitem.guithub.com/index.html';">Ir a inicio</button>
+    <div class="header-wrapper">
+        <div class="image-container"></div>
+        
+    
+    
+        
+        
+        <div class="site-name">
+            <img src="img/logo2.png" alt="Logo de Estudiante" class="logo">
+    <h1>Calificaciónes de Estudiante</h1>
+    </div>
+  </div>
+
+  <div class="search-container" style="display: flex; align-items: center; gap: 10px;">
+    <span class="search-icon"><i class="fa fa-search"></i></span>
+    <input type="text" id="searchInput" placeholder="Introduzca su Cédula" style="border: 2px solid gray; border-radius: 5px; padding: 10px; flex: 1;">
+    <button onclick="searchImages()" class="btn" style="background-color: #376fe9; color: white; font-weight: bold; padding: 10px 20px;">Buscar</button>
+</div>
+  <div id="message" style="color: red; margin-top: 10px;"></div>
+
+  <div id="notRegistered" style="display: none; color: red;">
+    <p>No se encontraron resultados.</p>
+  </div>
+
+  
+
+  <div class="container">
+    <div class="featured-block">
+        <div class="row" style="display: flex; flex-wrap: nowrap; overflow-x: auto;">
+            <!-- Elementos del primer contenido -->
+            <div class="col-md-3">
+                <div class="block">
+                    <div class="thumbnail">
+                        <img src="img/foto activo/img1.jpg" alt="" class="img-responsive">
+                        <div class="caption">
+                            <h1>AARÓN BLANCO</h1>
+                            <span>Cedula:</span> 
+                            <p>22906698</p>
+                            <a href="boletin/seccion_activo/boletin_01.html" class="btn btn-primary">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="block">
+                    <div class="thumbnail">
+                        <img src="img/foto activo/img2.jpg" alt="" class="img-responsive">
+                        <div class="caption">
+                            <h1>ALEJANDRO NICOLAS N.</h1>
+                            <span>Cedula:</span> 
+                            <p>6418287</p>
+                            <a href="boletin/seccion_activo/boletin_02.html" class="btn btn-primary">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="block">
+                    <div class="thumbnail">
+                        <img src="img/foto activo/img3.jpg" alt="" class="img-responsive">
+                        <div class="caption">
+                            <h1>ANGELO JOSÉ L.</h1>
+                            <span>N°Cedula:</span> 
+                            <p>23691329</p>
+                            <a href="boletin/seccion_activo/boletin_03.html" class="btn btn-primary">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="block">
+                    <div class="thumbnail">
+                        <img src="img/foto activo/img4.jpg" alt="" class="img-responsive">
+                        <div class="caption">
+                            <h1>AUGUSTO ROMERO</h1>
+                            <span>Cedula:</span> 
+                            <p>33937222</p>
+                            <a href="boletin/seccion_activo/boletin_04.html" class="btn btn-primary">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="block">
+                    <div class="thumbnail">
+                        <img src="img/foto activo/img5.jpg" alt="" class="img-responsive">
+                        <div class="caption">
+                            <h1>CARLA COROMOTO</h1>
+                            <span>Cedula:</span> 
+                            <p>16115606</p>
+                            <a href="boletin/seccion_activo/boletin_05.html" class="btn btn-primary">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="block">
+                    <div class="thumbnail">
+                        <img src="img/foto activo/img6.jpg" alt="" class="img-responsive">
+                        <div class="caption">
+                            <h1>CARLOS JOSÉ RAMOS</h1>
+                            <span>Cedula:</span> 
+                            <p>17975467</p>
+                            <a href="boletin/seccion_activo/boletin_06.html" class="btn btn-primary">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="block">
+                    <div class="thumbnail">
+                        <img src="img/foto activo/img7.jpg" alt="" class="img-responsive">
+                        <div class="caption">
+                            <h1>CAROL ALEJANDRA</h1>
+                            <span>Cedula:</span> 
+                            <p>13564315</p>
+                            <a href="boletin/seccion_activo/boletin_07.html" class="btn btn-primary">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="col-md-3">
+          <div class="block">
+              <div class="thumbnail">
+                  <img src="img/foto activo/img8.jpg" alt="" class="img-responsive">
+                  <div class="caption">
+                      <h1>20872165</h1>
+                      <span>N°</span>
+                      <p>CATERINE AURORA</p>
+                      <a href="boletin/seccion_activo/boletin_08.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- Bloque 9 -->
+      <div class="col-md-3">
+          <div class="block">
+              <div class="thumbnail">
+                  <img src="img/foto activo/img9.jpg" alt="" class="img-responsive">
+                  <div class="caption">
+                      <h1>CESAR ADRIÁN</h1>
+                      <span>N° Cedula:</span>
+                      <p>12507699</p>
+                      <a href="boletin/seccion_activo/boletin_09.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- Bloque 10 -->
+      <div class="col-md-3">
+          <div class="block">
+              <div class="thumbnail">
+                  <img src="img/foto activo/img10.jpg" alt="" class="img-responsive">
+                  <div class="caption">
+                      <h1>CRISTIAN VEGAS</h1>
+                      <span>N° Cedula:</span>
+                      <p>32099712</p>
+                      <a href="boletin/seccion_activo/boletin_10.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- Bloque 11 -->
+      <div class="col-md-3">
+          <div class="block">
+              <div class="thumbnail">
+                  <img src="img/foto activo/img11.jpg" alt="" class="img-responsive">
+                  <div class="caption">
+                      <h1>DAMELIS GOMEZ</h1>
+                      <span>N° Cedula:</span>
+                      <p>12878627</p>
+                      <a href="boletin/seccion_activo/boletin_11.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3">
+        <div class="block">
+            <div class="thumbnail">
+                <img src="img/foto activo/img12.jpg" alt="" class="img-responsive">
+                <div class="caption">
+                    <h1>DENISSE S. ALVARADO</h1>
+                    <span>N° Cedula:</span>
+                    <p>18459930</p>
+                    <a href="boletin/seccion_activo/boletin_12.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="block">
+            <div class="thumbnail">
+                <img src="img/foto activo/img13.jpg" alt="" class="img-responsive">
+                <div class="caption">
+                    <h1>DEYANIS CAROLINA</h1>
+                    <span>N° Cedula:</span>
+                    <p>29555933</p>
+                    <a href="boletin/seccion_activo/boletin_13.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="block">
+            <div class="thumbnail">
+                <img src="img/foto activo/img14.jpg" alt="" class="img-responsive">
+                <div class="caption">
+                    <h1>EGLYS CAROLINA</h1>
+                    <span>N° Cedula:</span>
+                    <p>15828729</p>
+                    <a href="boletin/seccion_activo/boletin_14.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="block">
+            <div class="thumbnail">
+                <img src="img/foto activo/img15.jpg" alt="" class="img-responsive">
+                <div class="caption">
+                    <h1>ELIZABETH BLANCO </h1>
+                    <span>N° Cedula:</span>
+                    <p>10501656</p>
+                    <a href="boletin/seccion_activo/boletin_15.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="block">
+            <div class="thumbnail">
+                <img src="img/foto activo/img16.jpg" alt="" class="img-responsive">
+                <div class="caption">
+                    <h1>FRANDER ERICK</h1>
+                    <span>N° Cedula:</span>
+                    <p>29676771</p>
+                    <a href="boletin/seccion_activo/boletin_16.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+      <div class="block">
+          <div class="thumbnail">
+              <img src="img/foto activo/img17.jpg" alt="" class="img-responsive">
+              <div class="caption">
+                  <h1>FRANKLIN BLADIMIR</h1>
+                  <span>N° Cedula:</span>
+                  <p>10541530</p>
+                  <a href="boletin/seccion_activo/boletin_17.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="col-md-3">
+    <div class="block">
+        <div class="thumbnail">
+            <img src="img/foto activo/img18.jpg" alt="" class="img-responsive">
+            <div class="caption">
+                <h1>GÉNESIS SUAREZ</h1>
+                <span>N° Cedula:</span>
+                <p>31945710</p>
+                <a href="boletin/seccion_activo/boletin_18.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="col-md-3">
+    <div class="block">
+        <div class="thumbnail">
+            <img src="img/foto activo/img19.jpg" alt="" class="img-responsive">
+            <div class="caption">
+                <h1>GREGORIO JOSÉ</h1>
+                <span>N° Cedula:</span>
+                <p>6272367</p>
+                <a href="boletin/seccion_activo/boletin_19.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="col-md-3">
+    <div class="block">
+        <div class="thumbnail">
+            <img src="img/foto activo/img20.jpg" alt="" class="img-responsive">
+            <div class="caption">
+                <h1>GUSBRANNY GRACIELA</h1>
+                <span>N° Cedula:</span>
+                <p>32099625</p>
+                <a href="boletin/seccion_activo/boletin_20.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+ <!-- boletin 21 hasta  27 contrucion fasta solo foto  -->
+ <div class="col-md-3">
+    <div class="block">
+        <div class="thumbnail">
+            <img src="img/foto activo/img1.jpg" alt="" class="img-responsive">
+            <div class="caption">
+                <h1>HILIA DEL CARMEN</h1>
+                <span>Cedula:</span> 
+                <p>6854336</p>
+                <a href="boletin/seccion_activo/boletin_21.html" class="btn btn-primary">Consultar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-3">
+    <div class="block">
+        <div class="thumbnail">
+            <img src="img/foto activo/img2.jpg" alt="" class="img-responsive">
+            <div class="caption">
+                <h1>HUBERTH EDUARDO.</h1>
+                <span>16901334</span> 
+                <p>6418287</p>
+                <a href="boletin/seccion_activo/boletin_22.html" class="btn btn-primary">Consultar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-3">
+    <div class="block">
+        <div class="thumbnail">
+            <img src="img/foto activo/img3.jpg" alt="" class="img-responsive">
+            <div class="caption">
+                <h1>INDIRA COROMOTO</h1>
+                <span>N°Cedula:</span> 
+                <p>6311458</p>
+                <a href="boletin/seccion_activo/boletin_23.html" class="btn btn-primary">Consultar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-3">
+    <div class="block">
+        <div class="thumbnail">
+            <img src="img/foto activo/img4.jpg" alt="" class="img-responsive">
+            <div class="caption">
+                <h1>JACQUELINE ELIZABETH</h1>
+                <span>Cedula:</span> 
+                <p>82257349</p>
+                <a href="boletin/seccion_activo/boletin_24.html" class="btn btn-primary">Consultar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-3">
+    <div class="block">
+        <div class="thumbnail">
+            <img src="img/foto activo/img5.jpg" alt="" class="img-responsive">
+            <div class="caption">
+                <h1>JELSON J. </h1>
+                <span>Cedula:</span> 
+                <p>22768517</p>
+                <a href="boletin/seccion_activo/boletin_25.html" class="btn btn-primary">Consultar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-3">
+    <div class="block">
+        <div class="thumbnail">
+            <img src="img/foto activo/img6.jpg" alt="" class="img-responsive">
+            <div class="caption">
+                <h1>JHONATAN ALEXANDER</h1>
+                <span>Cedula:</span> 
+                <p>26787657</p>
+                <a href="boletin/seccion_activo/boletin_26.html" class="btn btn-primary">Consultar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-3">
+    <div class="block">
+        <div class="thumbnail">
+            <img src="img/foto activo/img7.jpg" alt="" class="img-responsive">
+            <div class="caption">
+                <h1>JOSÉ ANGEL</h1>
+                <span>Cedula:</span> 
+                <p>398772</p>
+                <a href="boletin/seccion_activo/boletin_27.html" class="btn btn-primary">Consultar</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div> 
+<!-- Bolentine 28 hasta 33 -->
+<div class="col-md-3">
+    <div class="block">
+        <div class="thumbnail">
+            <img src="img/foto activo/img9.jpg" alt="" class="img-responsive">
+            <div class="caption">
+                <h1>JUVENAL MORALES</h1>
+                <span>N° Cedula:</span>
+                <p>6661015</p>
+                <a href="boletin/seccion_activo/boletin_28.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bloque 10 -->
+<div class="col-md-3">
+    <div class="block">
+        <div class="thumbnail">
+            <img src="img/foto activo/img10.jpg" alt="" class="img-responsive">
+            <div class="caption">
+                <h1>KARELIS DE ZAMBRANO</h1>
+                <span>N° Cedula:</span>
+                <p>25879909</p>
+                <a href="boletin/seccion_activo/boletin_29.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bloque 11 -->
+<div class="col-md-3">
+    <div class="block">
+        <div class="thumbnail">
+            <img src="img/foto activo/img11.jpg" alt="" class="img-responsive">
+            <div class="caption">
+                <h1>LORENZO ANTONIO</h1>
+                <span>N° Cedula:</span>
+                <p>14253324</p>
+                <a href="boletin/seccion_activo/boletin_30.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-3">
+  <div class="block">
+      <div class="thumbnail">
+          <img src="img/foto activo/img12.jpg" alt="" class="img-responsive">
+          <div class="caption">
+              <h1>MARÍA ISABEL</h1>
+              <span>N° Cedula:</span>
+              <p>11935349</p>
+              <a href="boletin/seccion_activo/boletin_31.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="col-md-3">
+  <div class="block">
+      <div class="thumbnail">
+          <img src="img/foto activo/img13.jpg" alt="" class="img-responsive">
+          <div class="caption">
+              <h1>MARILUZ CASIMIRO</h1>
+              <span>N° Cedula:</span>
+              <p>15487043</p>
+              <a href="boletin/seccion_activo/boletin_32.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="col-md-3">
+  <div class="block">
+      <div class="thumbnail">
+          <img src="img/foto activo/img14.jpg" alt="" class="img-responsive">
+          <div class="caption">
+              <h1>MARIO YAMIL</h1>
+              <span>N° Cedula:</span>
+              <p>11939100</p>
+              <a href="boletin/seccion_activo/boletin_33.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="col-md-3">
+  <div class="block">
+      <div class="thumbnail">
+          <img src="img/foto activo/img15.jpg" alt="" class="img-responsive">
+          <div class="caption">
+              <h1> </h1>
+              <span>N° Cedula:</span>
+              <p></p>
+              <a href="boletin/seccion_activo/boletin_15.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="col-md-3">
+  <div class="block">
+      <div class="thumbnail">
+          <img src="img/foto activo/img16.jpg" alt="" class="img-responsive">
+          <div class="caption">
+              <h1></h1>
+              <span>N° Cedula:</span>
+              <p></p>
+              <a href="boletin/seccion_activo/boletin_16.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="col-md-3">
+<div class="block">
+    <div class="thumbnail">
+        <img src="img/foto activo/img17.jpg" alt="" class="img-responsive">
+        <div class="caption">
+            <h1></h1>
+            <span>N° Cedula:</span>
+            <p></p>
+            <a href="boletin/seccion_activo/boletin_17.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="block">
+  <div class="thumbnail">
+      <img src="img/foto activo/img18.jpg" alt="" class="img-responsive">
+      <div class="caption">
+          <h1></h1>
+          <span>N° Cedula:</span>
+          <p></p>
+          <a href="boletin/seccion_activo/boletin_18.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="block">
+  <div class="thumbnail">
+      <img src="img/foto activo/img19.jpg" alt="" class="img-responsive">
+      <div class="caption">
+          <h1></h1>
+          <span>N° Cedula:</span>
+          <p></p>
+          <a href="boletin/seccion_activo/boletin_19.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="block">
+  <div class="thumbnail">
+      <img src="img/foto activo/img20.jpg" alt="" class="img-responsive">
+      <div class="caption">
+          <h1></h1>
+          <span>N° Cedula:</span>
+          <p></p>
+          <a href="boletin/seccion_activo/boletin_20.html" class="btn btn-primary" style="font-weight: bold;">Consultar</a>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+        <div class="ruler"></div>  
+        </div>
+        
+  </body>
+</html>
